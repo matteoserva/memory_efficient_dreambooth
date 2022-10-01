@@ -1,7 +1,12 @@
 # notes
     the original source is from https://github.com/ShivamShrirao/diffusers
     I used this revision of the xformers library pip install git+https://github.com/facebookresearch/xformers@1d31a3a#egg=xformers
-    Tested on a nvidia 3060 12G
+    Tested on a nvidia 3060 12G.
+    My machine: 
+        debian linux, 
+        64GB of ram, 
+        a nvidia 3060 as the main gpu for the desktop, 
+        a secondary nvidia 1060 6G.
 
 
 # DreamBooth training example
