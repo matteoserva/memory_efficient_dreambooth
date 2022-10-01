@@ -344,6 +344,7 @@ def main():
                 args.pretrained_model_name_or_path, use_auth_token=args.use_auth_token, torch_dtype=torch_dtype
             )
             pipeline.set_progress_bar_config(disable=True)
+            pipeline.enable_attention_slicing() #more memory savings
 
             num_new_images = args.num_class_images - cur_class_images
             logger.info(f"Number of class images to sample: {num_new_images}.")
