@@ -36,7 +36,7 @@ then
     --lr_warmup_steps=0 \
     --sample_batch_size=4 \
     --num_class_images=200 \
-    --max_train_steps=3
+    --max_train_steps=600
   
 else
 
@@ -58,7 +58,7 @@ accelerate launch train_dreambooth.py \
   --lr_warmup_steps=0 \
   --sample_batch_size=4 \
   --num_class_images=200 \
-  --max_train_steps=3
+  --max_train_steps=600
   
 fi
 
