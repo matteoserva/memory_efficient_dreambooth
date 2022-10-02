@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+####################################
+### start configuration parameters
+####################################
+
 CLASS_NAME="person"
 INSTANCE_NAME="matteo"
 
@@ -15,13 +20,26 @@ export USE_MEMORY_EFFICIENT_ATTENTION=1
 
 export DREAMBOOTH_SECONDARY=cpu
 EFFICIENT_TRAINER=1
+PARALLEL_TRAINING=0
 
+####################################
+### end of configuration parameters
+####################################
+
+
+
+
+PYTHON_TRAIN_FILENAME=train_dreambooth.py 
+if [[ $PARALLEL_TRAINING -gt 0 ]]
+then
+PYTHON_TRAIN_FILENAME=train_dreambooth_parallel.py 
+fi
 
 
 if [[ $EFFICIENT_TRAINER -gt 0 ]]
 then
     echo using the most efficient training
-    accelerate launch train_dreambooth.py \
+    accelerate launch $PYTHON_TRAIN_FILENAME \
     --pretrained_model_name_or_path=$MODEL_NAME --use_auth_token \
     --instance_data_dir=$INSTANCE_DIR \
     --class_data_dir=$CLASS_DIR \
@@ -36,12 +54,12 @@ then
     --lr_warmup_steps=0 \
     --sample_batch_size=4 \
     --num_class_images=200 \
-    --max_train_steps=600
+    --max_train_steps=400
   
 else
 
 echo "you can also try this if you have enough memory and the correct repository, it uses the prior preservation and gradient accumulation" 
-accelerate launch train_dreambooth.py \
+accelerate launch $PYTHON_TRAIN_FILENAME \
   --pretrained_model_name_or_path=$MODEL_NAME --use_auth_token \
   --instance_data_dir=$INSTANCE_DIR \
   --class_data_dir=$CLASS_DIR \
@@ -58,7 +76,7 @@ accelerate launch train_dreambooth.py \
   --lr_warmup_steps=0 \
   --sample_batch_size=4 \
   --num_class_images=200 \
-  --max_train_steps=600
+  --max_train_steps=800
   
 fi
 
