@@ -18,3 +18,7 @@
     
     The EFFICIENT_TRAINER is set to 1 to use the most efficient setup I found.
     For a bit more precise training use 0.
+
+    PARALLEL_TRAINING. If 0, the execution is alternating between cpu and gpu
+    If set to 1, the gpu and secondary device will run in parallel.
+    Parallel training doesn't increase VRAM.
