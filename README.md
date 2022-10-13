@@ -1,6 +1,6 @@
 # Deprecation warning
     This repository is obsolete. ShivamShrirao made a better implementation of this.
-    Here is [his repository](https://github.com/ShivamShrirao/diffusers).
+    Here is his repository: https://github.com/ShivamShrirao/diffusers.
 
 
 # notes
