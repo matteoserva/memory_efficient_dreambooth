@@ -1,3 +1,8 @@
+# Deprecation warning
+    This repository is obsolete. ShivamShrirao made a better implementation of this.
+    Here is [his repository](https://github.com/ShivamShrirao/diffusers).
+
+
 # notes
     the original source is from https://github.com/ShivamShrirao/diffusers
     I used this revision of the xformers library pip install git+https://github.com/facebookresearch/xformers@1d31a3a#egg=xformers
